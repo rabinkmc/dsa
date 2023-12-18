@@ -12,8 +12,11 @@ class Solution:
     def canVisitAllRooms(self, rooms: List[List[int]]) -> bool:
         stack = [0]
         rooms_visited = set()
+        rooms_visited.add(0)
         while stack:
             cur = stack.pop()
+            if cur in rooms_visited:
+                continue
             rooms_visited.add(cur)
             stack.extend(rooms[cur])
         return len(rooms_visited) < len(rooms)
