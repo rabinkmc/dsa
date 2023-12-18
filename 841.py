@@ -12,16 +12,16 @@ class Solution:
     def canVisitAllRooms(self, rooms: List[List[int]]) -> bool:
         stack = [0]
         rooms_visited = set()
-        rooms_visited.add(0)
         while stack:
             cur = stack.pop()
             if cur in rooms_visited:
                 continue
             rooms_visited.add(cur)
             stack.extend(rooms[cur])
-        return len(rooms_visited) < len(rooms)
+        rooms_visited.add(0)
+        return len(rooms_visited) == len(rooms)
 
 
 rooms = [[1], [2], [3], []]
-# rooms = [[1, 3], [3, 0, 1], [2], [0]]
+rooms = [[1, 3], [3, 0, 1], [2], [0]]
 print(Solution().canVisitAllRooms(rooms))
