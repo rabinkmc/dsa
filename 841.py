@@ -1,14 +1,22 @@
 from typing import List
+# I was serially visiting the rooms, that doesn't work
+# I can go to room 2 and then go to room 1 as well
+
+# what's the idea
+# idea is to go to the first room, collect all the keys from that room
+# now go to all the room that I have keys to, and collect the keys from there
+# At the end check if you have all the keys
 
 
 class Solution:
     def canVisitAllRooms(self, rooms: List[List[int]]) -> bool:
-        keys = set(rooms[0])
-        for i, room in enumerate(rooms[1:], 1):
-            if i not in keys:
-                return False
-            keys = keys | set(room)
-        return True
+        stack = [0]
+        rooms_visited = set()
+        while stack:
+            cur = stack.pop()
+            rooms_visited.add(cur)
+            stack.extend(rooms[cur])
+        return len(rooms_visited) < len(rooms)
 
 
 rooms = [[1], [2], [3], []]
