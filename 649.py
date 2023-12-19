@@ -8,24 +8,34 @@ RDD
 
 1. RDD -> DDR -> DR
 2. DR -> RD -> D
+
+better approach
+1. maintain two queues r and d
+2. pop the first element from each queue, check the priority,
+   the one with higher priority gets appended at the end of its
+   respective queue with updated priority
 """
 from collections import deque
 
 
 class Solution:
     def predictPartyVictory(self, senate: str) -> str:
-        # first D moves to the back and removes first R
-        # first R moves to the back and removes first D
-        senates = deque(senate)
-        while senates:
-            cur = senates.popleft()
-            opposition = "R" if cur == "D" else "D"
-            if opposition not in senates:
-                return "Radiant" if cur == "R" else "Dire"
-            del senates[senates.index(opposition)]
-            senates.append(cur)
+        r = deque()
+        d = deque()
+        for i, party in enumerate(senate):
+            if party == "R":
+                r.append(i)
+            else:
+                d.append(i)
+        n = len(senate)
+        while r and d:
+            rcur, dcur = r.popleft(), d.popleft()
+            if rcur < dcur:
+                r.append(rcur + n)
+            else:
+                d.append(dcur + n)
 
-        return ""
+        return "Radiant" if r else "Dire"
 
 
-print(Solution().predictPartyVictory("RD"))
+print(Solution().predictPartyVictory("RRRRRDDDDDD"))
