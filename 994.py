@@ -2,50 +2,45 @@ from typing import List
 from collections import deque
 
 """
-do a bfs from every fresh orange to rotten orange
-and the maximum of all the bfs's is the answer
+do a bfs from every rotten orange to fresh orange
 """
 
 
 class Solution:
     def orangesRotting(self, grid: List[List[int]]) -> int:
-        ans = 0
+        fresh = 0
+        rotten = deque()
         for r, row in enumerate(grid):
             for c, orange in enumerate(row):
-                if orange == 0 or orange == 2:
+                if orange == 0:
                     continue
-                if orange == 1:
-                    temp = self.bfs(r, c, grid)
-                    if temp == -1:
-                        return -1
-                    ans = max(ans, temp)
-
-        return ans
-
-    def bfs(self, r, c, grid):
+                elif orange == 1:
+                    fresh += 1
+                else:
+                    rotten.append((r, c))
+        minutes = 0
         h = len(grid)
         w = len(grid[0])
-        direction = [(1, 0), (-1, 0), (0, 1), (0, -1)]
-        queue = deque()
-        queue.append((r, c, 0))
+        while rotten and fresh > 0:
+            minutes += 1
+            for _ in range(len(rotten)):
+                r, c = rotten.popleft()
+                for rr, cc in [(0, 1), (0, -1), (1, 0), (-1, 0)]:
+                    i, j = r + rr, c + cc
+                    if 0 <= i < h and 0 <= j < w:
+                        if grid[i][j] == 0:
+                            continue
+                        if grid[i][j] == 2:
+                            continue
 
-        while queue:
-            r, c, minute = queue.popleft()
-            if grid[r][c] == 2:
-                return minute
-            for dd in direction:
-                dr, dc = dd
-                rr = r + dr
-                cc = c + dc
-                if 0 <= rr < h and 0 <= cc < w:
-                    if grid[rr][cc] == 0:
-                        continue
-                    queue.append((rr, cc, minute + 1))
+                        grid[i][j] = 2
+                        fresh -= 1
+                        rotten.append((i, j))
 
-        return -1
+        return -1 if fresh > 0 else minutes
 
 
 grid = [[2, 1, 1], [1, 1, 0], [0, 1, 1]]
 # grid = [[2, 1, 1], [0, 1, 1], [1, 0, 1]]
-# grid = [[0, 2]]
+# grid = [[1, 2]]
 print(Solution().orangesRotting(grid))
