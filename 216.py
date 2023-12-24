@@ -1,25 +1,37 @@
 from typing import List
 
+from itertools import combinations
+
+# I can use all numbers from 1 to 9 
+n = 13
+
+
+"""
+13
+(13-1) (13-2) (13 -3) (13-4) (13-5) ... .(13-9)
+
+(12-2) - (12-3) - ...(12-9)
+
+(10 - 3)
+
+"""
 
 class Solution:
-    def combinationSum3(self, k: int, n: int, used=set()) -> List[List[int]]:
-        # print(
-        #     k, n, f"{k} >= 1 and {n} <= 0 and {n} >= 10", k >= 1 and n <= 0 and n >= 10
-        # )
-        if k >= 1 and n <= 0 and n >= 10:
-            return []
-        if k == 1 and 1 <= n <= 9:
-            if n not in used:
-                return [[n]]
-            return []
+    def combinationSum3(self, k: int, n: int) -> List[List[int]]:
         answer = []
-        for num in range(1, max(n, 10)):
-            out = self.combinationSum3(k - 1, n - num, used)
-            if out:
-                result = [[num] + result for result in out]
-                used.add(num)
-                answer.extend(result)
+        def dfs(i, path=[], total=0):
+            if len(path) == k:
+                if total == n:
+                    answer.append(path)
+                return 
+            for j in range(i+1, 9+1):
+                if total >n:
+                    break
+                dfs(j, path + [j], total + j)
+        dfs(0)
+
         return answer
+       
 
 
-print(Solution().combinationSum3(2, 5))
+print(Solution().combinationSum3(3, 7))
