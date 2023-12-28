@@ -5,9 +5,6 @@ class TreeNode:
         self.right = right
 
 
-root = TreeNode(10)
-root_left = TreeNode(5)
-
 three_leaf = TreeNode(3)
 minus_two_leaf = TreeNode(-2)
 one_leaf = TreeNode(1)
