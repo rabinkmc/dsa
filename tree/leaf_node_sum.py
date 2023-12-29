@@ -41,9 +41,19 @@ def leaf_node_sum(root):
         return root.val
     return leaf_node_sum(root.left) + leaf_node_sum(root.right)
 
+
 def leaf_node_sum_it(root):
+    stack = [root]
+    total = 0 
+    while stack:
+        curr = stack.pop()
+        if not curr.left and not curr.right:
+            total += curr.val
+        if curr.left:
+            stack.append(curr.left)
+        if curr.right:
+            stack.append(curr.right)
+    return total
 
-
-ans = leaf_node_sum(root)
-tprint(root)
-print("\n", ans)
+assert leaf_node_sum(root) == 13
+assert leaf_node_sum_it(root) == 13
