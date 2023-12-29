@@ -6,26 +6,30 @@ from itertools import *
 class MyQueue:
 
     def __init__(self):
-        self.s1 = [] # main stack 
-        self.s2 = [] # auxiliary stack to copy existing elements to that stack
+        self.s1 = [] # push stack
+        self.s2 = [] # pop stack
+        self.front = None
         
     def push(self, x: int) -> None:
-        while self.s1:
-            self.s2.append(self.s1.pop())
+        if not self.s1:
+            self.front = x
         self.s1.append(x)
-        while self.s2:
-            self.s1.append(self.s2.pop())
         
     def pop(self) -> int:
-        return self.s1.pop()
+        if not self.s2:
+            while self.s1:
+                self.s2.append(self.s1.pop())
+        return self.s2.pop()
         
 
     def peek(self) -> int:
-        return self.s1[-1]
+        if self.s2:
+            return self.s2[-1]
+        return self.front
         
 
     def empty(self) -> bool:
-        return not self.s1
+        return not self.s1 and not self.s2
         
 
 
