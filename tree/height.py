@@ -44,19 +44,37 @@ def rec_height(node):
     return 1 + max(lh, rh)
 
 
-def it_height(node: TreeNode):
-    queue = deque([(node, 0)])
+def it_height_dfs(node: TreeNode):
+    stack = [(node, 0)]
     ans = 0
-    while queue:
-        curr, level = queue.popleft()
+    while stack:
+        curr, level = stack.pop()
         ans = max(ans, level)
         if curr.left:
-            queue.append((curr.left, level + 1))
+            stack.append((curr.left, level + 1))
         if curr.right:
-            queue.append((curr.right, level + 1))
+            stack.append((curr.right, level + 1))
     return ans
 
 
+def it_height_bfs(node: TreeNode):
+    queue = deque([node])
+    height = -1
+    while queue:
+        height += 1
+        # we are just processing elements level by level
+        # to distinguish level we are just increasing height by 1
+        for curr in range(len(queue)):
+            curr = queue.popleft()
+            if curr.left:
+                queue.append(curr.left)
+            if curr.right:
+                queue.append(curr.right)
+
+    return height
+
+
 h = rec_height(root)
-ith = it_height(root)
-print(h, ith)
+ith = it_height_dfs(root)
+bth = it_height_bfs(root)
+print(h, bth)
