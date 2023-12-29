@@ -6,6 +6,9 @@
 # /\   \
 # 3 -2  1
 #
+#
+from typing import Optional
+from typing import List
 
 
 class TreeNode:
@@ -26,9 +29,6 @@ five = TreeNode(5, left=three, right=two)
 root = TreeNode(10, left=five, right=minus_three)
 
 
-def tprint(node):
-    if node is None:
-        return
-    print(node.val, "->", end="")
-    tprint(node.left)
-    tprint(node.right)
+class Solution:
+    def isBalanced(self, root: Optional[TreeNode]) -> bool:
+        return False

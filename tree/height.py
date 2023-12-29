@@ -6,6 +6,7 @@
 # /\   \
 # 3 -2  1
 #
+from collections import deque
 
 
 class TreeNode:
@@ -32,3 +33,30 @@ def tprint(node):
     print(node.val, "->", end="")
     tprint(node.left)
     tprint(node.right)
+
+
+def rec_height(node):
+    if not node:
+        return -1
+
+    lh = rec_height(node.left)
+    rh = rec_height(node.right)
+    return 1 + max(lh, rh)
+
+
+def it_height(node: TreeNode):
+    queue = deque([(node, 0)])
+    ans = 0
+    while queue:
+        curr, level = queue.popleft()
+        ans = max(ans, level)
+        if curr.left:
+            queue.append((curr.left, level + 1))
+        if curr.right:
+            queue.append((curr.right, level + 1))
+    return ans
+
+
+h = rec_height(root)
+ith = it_height(root)
+print(h, ith)
