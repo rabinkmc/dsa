@@ -27,12 +27,18 @@ five = TreeNode(5, left=three, right=two)
 root = TreeNode(10, left=five, right=minus_three)
 
 
-def tprint(node):
+def tprint(node, inorder=False):
     if node is None:
         return
-    print(node.val, "->", end="")
-    tprint(node.left)
-    tprint(node.right)
+    if inorder:
+        tprint(node.left)
+        print(node.val, "->", end="")
+        tprint(node.right)
+    else:
+        print(node.val, "->", end="")
+        tprint(node.left)
+        tprint(node.right)
+
 
 class Solution:
     def dfs(self, root: Optional[TreeNode]):

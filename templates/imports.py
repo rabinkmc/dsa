@@ -1,4 +1,3 @@
-from typing import Optional
-from typing import List
+from typing import Optional, List
 from collections import *
 from itertools import *
