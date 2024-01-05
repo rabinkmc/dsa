@@ -28,9 +28,9 @@ gather information to work on what I need to train.
        probably lack the basics on that particular topic ( now it's been 30 mins). 
     4. Even after 30 mins, you haven't solved the particular problem, maybe there's simpler problem on that
        topic, solve those problems first and do the step 0 -3 for the simpler problem again.
-  - At the end of 3 hours, evaluate your state, if you have solved around 10 problems ( that's it took you 
-    30 minutes to solve problem, you're in a good state.) If you solved around 5-10 problems, maybe you lack 
-    understanding on some topics, identify those, take note of them to study.
+  - At the end of 3 hours, evaluate your state, if you have solved around 10 problems ( i.e,  it took you 
+    30 minutes to solve problem, you're in a good state.) If you solved less than 5 problems, maybe you lack 
+    understanding on some topics, identify those, take note of them to study for later.
 
     > **20-30 mins break** 
       Break are just time for reflection - don't go youtube, or book or email or anything, just your thoughts
