@@ -73,8 +73,8 @@ def find_gt(arr, x):
     if ip == len(arr), it means there is no value in arr that is greater than x
     """
     ip = bisect.bisect_right(arr, x)
-    if i != len(arr):
-        return arr[i]
+    if ip != len(arr):
+        return arr[ip]
     raise ValueError
 
 def find_ge(arr, x):
@@ -82,6 +82,6 @@ def find_ge(arr, x):
     find left most value that is greater than or equal to x
     """
     ip = bisect.bisect_left(arr, x)
-    if i != len(arr):
-        return arr[i]
+    if ip != len(arr):
+        return arr[ip]
     raise ValueError
