@@ -1,6 +1,8 @@
 import os
 from pathlib import Path
-folder,*problems  = open("contest.md").read().strip("\n").split("\n")
+
+LATEST_CONTEST = "latest_contest.md"
+folder,*problems  = open(LATEST_CONTEST).read().strip("\n").split("\n")
 contest_dir = folder.split("#")[-1].strip()
 path = Path(f"contests/{contest_dir}")
 
