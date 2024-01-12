@@ -1,7 +1,6 @@
 abcd = [1, 100, 1, 1, 1, 100, 1, 1, 100, 1]
 abcd.append(0)
 
-
 def min_cost(cost):
     if not cost:
         return 0
