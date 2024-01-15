@@ -1,29 +1,34 @@
 from typing import List
 
+
 class Solution:
     def generateParenthesis(self, n: int) -> List[str]:
         self.answers = []
 
-        def get_candidates(subset):
+        def get_candidates(subset, lc, rc):
             ans = []
-            lc = subset.count("(")
-            rc = subset.count(")")
             if lc < n:
                 ans.append("(")
             if rc < lc:
                 ans.append(")")
             return ans
 
-        def backtrack(subset):
-            if len(subset) == n*2:
+        def backtrack(subset, lc, rc):
+            if len(subset) == n * 2:
                 answer = "".join(subset)
                 self.answers.append(answer)
-                return 
+                return
 
-            for candidate in get_candidates(subset):
-                backtrack(subset + [candidate])
+            for candidate in get_candidates(subset, lc, rc):
+                backtrack(
+                    subset + [candidate],
+                    lc + int(candidate == "("),
+                    rc + int(candidate == ")"),
+                )
 
-        backtrack(["("])
-        print(self.answers)
+        backtrack(["("], 1, 0)
+        return self.answers
+
+
 ans = Solution().generateParenthesis(3)
-        
+print(ans)
