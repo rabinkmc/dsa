@@ -8,34 +8,22 @@ from typing import List
 
 class Solution:
     def matrixSumQueries(self, n: int, queries: List[List[int]]) -> int:
-        # find last queries only
-        qs = []
-        visited = set()
-        for typ, idx, val in queries[::-1]:
-            node = (typ, idx)
-            if node in visited:
-                continue
-            if len(visited) == 2*n:
-                break
-            qs.append((typ,idx, val))
-            visited.add(node)
-
-        # apply the queries
-        mat = [[0]*n for _ in range(n)]
-        for i in range(len(qs) - 1, -1, -1):
-            typ, idx, val = qs[i]
-            if typ == 0:
-                for c in range(n):
-                    mat[idx][c] = val
-            else:
-                for r in range(n):
-                    mat[r][idx] = val
-
-        # calculate total 
+        cols, rows = set(), set()
         total = 0
-        for i in range(n):
-            for j in range(n):
-                total += mat[i][j]
+        for typ, idx, val in queries[::-1]:
+            if typ:
+                if idx not in cols:
+                    cols.add(idx)
+                    # since I am doing it in reverse
+                    # I shouldn't take the cells which have already been updated
+                    # suppose I am visiting 1st column and 2 rows have already been affected
+                    # then, only value that I can replace is the one that has not been affected 
+                    # or only cell that contributes to total is the one that hasn't been updated yet
+                    total += val * (n - len(rows))
+            else:
+                if idx not in rows:
+                    rows.add(idx)
+                    total += val * (n - len(cols))
         return total
 
 
