@@ -11,7 +11,7 @@ bisect.bisect_left
 
 partitions the array into two parts
 arr[:ip] -> In this half, all the elements are less than x
-arr[ip:] -> In this half, all the elements are greater than x
+arr[ip:] -> In this half, all the elements are greater than or equal to x
 
 bisect.bisect_right, bisect
 -> locates the insertion point for x such that insertion point, ip comes after the existing entries of x
