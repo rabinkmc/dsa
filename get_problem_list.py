@@ -8,14 +8,14 @@ def api_url(contest_id):
 def contest_link(contest_id, question_slug):
     return f"https://leetcode.com/contest/weekly-contest-{contest_id}/problems/{question_slug}/"
 
-def file_path(question_id, question_slug):
-    return f"{question_id}-{question_slug}.py"
+def file_path(question_id, question_slug, contest_id):
+    return f"{question_id}-{question_slug}-{contest_id}.py"
 
 EASY = 0
 MEDIUM_EASY = 1
 MEDIUM_HARD = 2
 HARD = 3
-NO_OF_PROBLEMS = 10
+NO_OF_PROBLEMS = 3
 
 
 def get_questions(contest_id):
@@ -37,9 +37,9 @@ def get_question_by_difficulty(contest_id, difficulty):
     link = contest_link(contest_id, question["title_slug"])
     return link
 
-def filename(contest_id, difficulty):
+def get_filename(contest_id, difficulty):
     question = get_questions(contest_id)[difficulty]
-    link = file_path(question["question_id"], question["title_slug"])
+    link = file_path(question["question_id"], question["title_slug"], contest_id)
     return link
 
 def generate_problem_list(until):
@@ -48,7 +48,7 @@ def generate_problem_list(until):
 
 def generate_files(until):
     for contest_id in range(until - NO_OF_PROBLEMS + 1, until+1):
-        path = filename(contest_id, MEDIUM_HARD)
+        path = get_filename(contest_id, MEDIUM_HARD)
         fp = open(path, "w")
         link = "# " + get_question_by_difficulty(contest_id, MEDIUM_HARD)
         fp.write(link)
@@ -56,10 +56,4 @@ def generate_files(until):
         print(path)
 
 
-# generate_problem_list(343)
-generate_files(343)
-# url = f"https://leetcode.com/contest/api/info/weekly-contest-344"
-# response = requests.get(url).json()
-
-# for i, question in enumerate(response['questions']):
-#     print(i, question)
+generate_files(342)
