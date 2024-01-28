@@ -1,4 +1,5 @@
 import requests
+import sys
 
 
 def api_url(contest_id):
@@ -15,7 +16,7 @@ EASY = 0
 MEDIUM_EASY = 1
 MEDIUM_HARD = 2
 HARD = 3
-NO_OF_PROBLEMS = 3
+NO_OF_PROBLEMS = 5
 
 
 def get_questions(contest_id):
@@ -56,4 +57,7 @@ def generate_files(until):
         print(path)
 
 
-generate_files(342)
+
+if __name__ == "__main__":
+    upto_week_id = int(sys.argv[1])
+    generate_files(upto_week_id)
