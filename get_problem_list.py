@@ -1,6 +1,5 @@
+import argparse
 import requests
-import sys
-
 
 def api_url(contest_id):
     return f"https://leetcode.com/contest/api/info/weekly-contest-{contest_id}"
@@ -33,31 +32,66 @@ def get_all_questions(contest_id):
     return links
 
 
-def get_question_by_difficulty(contest_id, difficulty):
+def get_question_link_by_difficulty(contest_id, difficulty):
     question = get_questions(contest_id)[difficulty]
     link = contest_link(contest_id, question["title_slug"])
     return link
 
+def get_contest_files(contest_id):
+    questions = get_questions(contest_id)
+    for index, question in enumerate(questions):
+        filepath = file_path(question["question_id"], question["title_slug"], contest_id)
+        write_file(contest_id, index)
+
 def get_filename(contest_id, difficulty):
     question = get_questions(contest_id)[difficulty]
-    link = file_path(question["question_id"], question["title_slug"], contest_id)
-    return link
+    filepath = file_path(question["question_id"], question["title_slug"], contest_id)
+    return filepath
 
 def generate_problem_list(until):
     for contest_id in range(until - NO_OF_PROBLEMS + 1, until+1):
-        print(get_question_by_difficulty(contest_id, MEDIUM_HARD))
+        print(get_question_link_by_difficulty(contest_id, MEDIUM_HARD))
+
+def write_file(path, content):
+    fp = open(path, "w")
+    fp.write(content)
+    fp.close()
 
 def generate_files(until):
     for contest_id in range(until - NO_OF_PROBLEMS + 1, until+1):
-        path = get_filename(contest_id, MEDIUM_HARD)
-        fp = open(path, "w")
-        link = "# " + get_question_by_difficulty(contest_id, MEDIUM_HARD)
-        fp.write(link)
-        fp.close()
-        print(path)
+        difficulty = MEDIUM_HARD
+        link = get_question_link_by_difficulty(contest_id, difficulty)
+        filepath = get_filename(contest_id, difficulty)
+        write_file(filepath, "# " + link)
+        print(filepath)
 
+
+def contest_problems(contest_id):
+    questions = get_questions(contest_id)
+    for question in questions:
+        link = contest_link(contest_id, question["title_slug"])
+        content = "# " + link
+        filepath = file_path(question["question_id"], question["title_slug"], contest_id)
+        write_file(filepath, content)
+        print(filepath)
 
 
 if __name__ == "__main__":
-    upto_week_id = int(sys.argv[1])
-    generate_files(upto_week_id)
+    argparser = argparse.ArgumentParser(
+        prog="leetcode cli",
+        description="Helpful cli tool for leetcode",
+    )
+    argsubparsers = argparser.add_subparsers(title="Commands", dest="command")
+    argsubparsers.required = True
+    contest_sp = argsubparsers.add_parser(
+        "contest", help="get problems from contest"
+    )
+    contest_sp.add_argument(
+        "contest_id",
+        help="The id of the weekly contest",
+    )
+
+    args = argparser.parse_args()
+    match args.command:
+        case "contest":
+            contest_problems(args.contest_id)
