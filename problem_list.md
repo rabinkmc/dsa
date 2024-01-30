@@ -1,4 +1,4 @@
-2580-circular-sentence-322.py
-2581-divide-players-into-teams-of-equal-skill-322.py
-2582-minimum-score-of-a-path-between-two-cities-322.py
-2583-divide-nodes-into-the-maximum-number-of-groups-322.py
+2566-number-of-unequal-triplets-in-array-320.py
+2567-closest-nodes-queries-in-a-binary-search-tree-320.py
+2568-minimum-fuel-cost-to-report-to-the-capital-320.py
+2569-number-of-beautiful-partitions-320.py
