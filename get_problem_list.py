@@ -48,9 +48,15 @@ def get_filename(contest_id, difficulty):
     filepath = file_path(question["question_id"], question["title_slug"], contest_id)
     return filepath
 
-def generate_problem_list(until):
-    for contest_id in range(until - NO_OF_PROBLEMS + 1, until+1):
+def generate_problem_list(until, no_of_problems):
+    for contest_id in range(until - no_of_problems + 1, until+1):
         print(get_question_link_by_difficulty(contest_id, MEDIUM_HARD))
+
+def generate_medium_problems(until, no_of_problems):
+    for contest_id in range(until - no_of_problems + 1, until+1):
+        questions = get_questions(contest_id)
+        print(contest_link(contest_id, questions[0]["title_slug"]))
+        print(contest_link(contest_id, questions[1]["title_slug"]))
 
 def write_file(path, content):
     fp = open(path, "w")
