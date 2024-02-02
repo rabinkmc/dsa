@@ -8,15 +8,18 @@ class Solution:
 
         def dfs(i, j):
             stack = [(i, j)]
+            visited = {(i, j)}
             count = 0
             while stack:
                 r, c = stack.pop()
                 count += 1
-                grid[r][c] = 0
                 for dr, dc in [(0, 1), (0, -1), (1, 0), (-1, 0)]:
                     rr, cc = r + dr, c + dc
+                    if (rr, cc) in visited:
+                        continue
                     if rr < 0 or rr >= m or cc < 0 or cc >= n or grid[rr][cc] == 0:
                         continue
+                    visited.add((rr, cc))
                     stack.append((rr, cc))
             return count
 
@@ -38,6 +41,7 @@ grid = [
     [0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0],
     [0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0],
 ]
+grid = [[1, 1, 0, 0, 0], [1, 1, 0, 0, 0], [0, 0, 0, 1, 1], [0, 0, 0, 1, 1]]
 
 ans = Solution().maxAreaOfIsland(grid)
 print(ans)
