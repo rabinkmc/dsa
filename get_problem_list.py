@@ -55,8 +55,8 @@ def generate_problem_list(until, no_of_problems):
 def generate_medium_problems(until, no_of_problems):
     for contest_id in range(until - no_of_problems + 1, until+1):
         questions = get_questions(contest_id)
-        print(contest_link(contest_id, questions[0]["title_slug"]))
-        print(contest_link(contest_id, questions[1]["title_slug"]))
+        print(contest_link(contest_id, questions[MEDIUM_EASY]["title_slug"]))
+        print(contest_link(contest_id, questions[MEDIUM_HARD]["title_slug"]))
 
 def write_file(path, content):
     fp = open(path, "w")
