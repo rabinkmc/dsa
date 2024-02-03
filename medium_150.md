@@ -1,5 +1,5 @@
-[ ] https://leetcode.com/contest/weekly-contest-151/problems/compare-strings-by-frequency-of-the-smallest-character/
-[ ] https://leetcode.com/contest/weekly-contest-151/problems/remove-zero-sum-consecutive-nodes-from-linked-list/
+[x] https://leetcode.com/contest/weekly-contest-151/problems/compare-strings-by-frequency-of-the-smallest-character/
+[x] https://leetcode.com/contest/weekly-contest-151/problems/remove-zero-sum-consecutive-nodes-from-linked-list/
 [ ] https://leetcode.com/contest/weekly-contest-152/problems/diet-plan-performance/ # not available
 [ ] https://leetcode.com/contest/weekly-contest-152/problems/can-make-palindrome-from-substring/
 [ ] https://leetcode.com/contest/weekly-contest-153/problems/day-of-the-week/
