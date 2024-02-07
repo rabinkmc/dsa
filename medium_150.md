@@ -1,14 +1,14 @@
 [x] https://leetcode.com/contest/weekly-contest-151/problems/compare-strings-by-frequency-of-the-smallest-character/
 [x] https://leetcode.com/contest/weekly-contest-151/problems/remove-zero-sum-consecutive-nodes-from-linked-list/
 [ ] https://leetcode.com/contest/weekly-contest-152/problems/diet-plan-performance/ # not available
-[-] https://leetcode.com/contest/weekly-contest-152/problems/can-make-palindrome-from-substring/
-[ ] https://leetcode.com/contest/weekly-contest-153/problems/day-of-the-week/
-[ ] https://leetcode.com/contest/weekly-contest-153/problems/maximum-subarray-sum-with-one-deletion/
-[ ] https://leetcode.com/contest/weekly-contest-154/problems/reverse-substrings-between-each-pair-of-parentheses/
-[ ] https://leetcode.com/contest/weekly-contest-154/problems/k-concatenation-maximum-sum/
-[ ] https://leetcode.com/contest/weekly-contest-155/problems/ugly-number-iii/
-[ ] https://leetcode.com/contest/weekly-contest-155/problems/smallest-string-with-swaps/
-[ ] https://leetcode.com/contest/weekly-contest-156/problems/get-equal-substrings-within-budget/
+[x] https://leetcode.com/contest/weekly-contest-152/problems/can-make-palindrome-from-substring/
+[ ] https://leetcode.com/contest/weekly-contest-153/problems/day-of-the-week/ # not doing this problem
+[x] https://leetcode.com/contest/weekly-contest-153/problems/maximum-subarray-sum-with-one-deletion/
+[x] https://leetcode.com/contest/weekly-contest-154/problems/reverse-substrings-between-each-pair-of-parentheses/
+[x] https://leetcode.com/contest/weekly-contest-154/problems/k-concatenation-maximum-sum/
+[x] https://leetcode.com/contest/weekly-contest-155/problems/ugly-number-iii/
+[x] https://leetcode.com/contest/weekly-contest-155/problems/smallest-string-with-swaps/
+[x] https://leetcode.com/contest/weekly-contest-156/problems/get-equal-substrings-within-budget/
 [ ] https://leetcode.com/contest/weekly-contest-156/problems/remove-all-adjacent-duplicates-in-string-ii/
 [ ] https://leetcode.com/contest/weekly-contest-157/problems/longest-arithmetic-subsequence-of-given-difference/
 [ ] https://leetcode.com/contest/weekly-contest-157/problems/path-with-maximum-gold/
