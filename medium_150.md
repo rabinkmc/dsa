@@ -9,9 +9,9 @@
 [x] https://leetcode.com/contest/weekly-contest-155/problems/ugly-number-iii/
 [x] https://leetcode.com/contest/weekly-contest-155/problems/smallest-string-with-swaps/
 [x] https://leetcode.com/contest/weekly-contest-156/problems/get-equal-substrings-within-budget/
-[ ] https://leetcode.com/contest/weekly-contest-156/problems/remove-all-adjacent-duplicates-in-string-ii/
-[ ] https://leetcode.com/contest/weekly-contest-157/problems/longest-arithmetic-subsequence-of-given-difference/
-[ ] https://leetcode.com/contest/weekly-contest-157/problems/path-with-maximum-gold/
+[-] https://leetcode.com/contest/weekly-contest-156/problems/remove-all-adjacent-duplicates-in-string-ii/
+[x] https://leetcode.com/contest/weekly-contest-157/problems/longest-arithmetic-subsequence-of-given-difference/
+[x] https://leetcode.com/contest/weekly-contest-157/problems/path-with-maximum-gold/
 [ ] https://leetcode.com/contest/weekly-contest-158/problems/queens-that-can-attack-the-king/
 [ ] https://leetcode.com/contest/weekly-contest-158/problems/dice-roll-simulation/
 [ ] https://leetcode.com/contest/weekly-contest-159/problems/remove-sub-folders-from-the-filesystem/
