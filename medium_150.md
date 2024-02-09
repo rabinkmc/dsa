@@ -12,9 +12,9 @@
 [x] https://leetcode.com/contest/weekly-contest-156/problems/remove-all-adjacent-duplicates-in-string-ii/
 [x] https://leetcode.com/contest/weekly-contest-157/problems/longest-arithmetic-subsequence-of-given-difference/
 [x] https://leetcode.com/contest/weekly-contest-157/problems/path-with-maximum-gold/
-[ ] https://leetcode.com/contest/weekly-contest-158/problems/queens-that-can-attack-the-king/
-[ ] https://leetcode.com/contest/weekly-contest-158/problems/dice-roll-simulation/
-[ ] https://leetcode.com/contest/weekly-contest-159/problems/remove-sub-folders-from-the-filesystem/
+[x] https://leetcode.com/contest/weekly-contest-158/problems/queens-that-can-attack-the-king/
+[-] https://leetcode.com/contest/weekly-contest-158/problems/dice-roll-simulation/
+[-] https://leetcode.com/contest/weekly-contest-159/problems/remove-sub-folders-from-the-filesystem/
 [ ] https://leetcode.com/contest/weekly-contest-159/problems/replace-the-substring-for-balanced-string/
 [ ] https://leetcode.com/contest/weekly-contest-160/problems/circular-permutation-in-binary-representation/
 [ ] https://leetcode.com/contest/weekly-contest-160/problems/maximum-length-of-a-concatenated-string-with-unique-characters/
