@@ -14,8 +14,8 @@
 [x] https://leetcode.com/contest/weekly-contest-157/problems/path-with-maximum-gold/
 [x] https://leetcode.com/contest/weekly-contest-158/problems/queens-that-can-attack-the-king/
 [-] https://leetcode.com/contest/weekly-contest-158/problems/dice-roll-simulation/
-[-] https://leetcode.com/contest/weekly-contest-159/problems/remove-sub-folders-from-the-filesystem/
-[ ] https://leetcode.com/contest/weekly-contest-159/problems/replace-the-substring-for-balanced-string/
+[x] https://leetcode.com/contest/weekly-contest-159/problems/remove-sub-folders-from-the-filesystem/
+[x] https://leetcode.com/contest/weekly-contest-159/problems/replace-the-substring-for-balanced-string/
 [ ] https://leetcode.com/contest/weekly-contest-160/problems/circular-permutation-in-binary-representation/
 [ ] https://leetcode.com/contest/weekly-contest-160/problems/maximum-length-of-a-concatenated-string-with-unique-characters/
 [ ] https://leetcode.com/contest/weekly-contest-161/problems/count-number-of-nice-subarrays/
