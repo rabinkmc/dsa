@@ -16,8 +16,8 @@
 [-] https://leetcode.com/contest/weekly-contest-158/problems/dice-roll-simulation/
 [x] https://leetcode.com/contest/weekly-contest-159/problems/remove-sub-folders-from-the-filesystem/
 [x] https://leetcode.com/contest/weekly-contest-159/problems/replace-the-substring-for-balanced-string/
-[ ] https://leetcode.com/contest/weekly-contest-160/problems/circular-permutation-in-binary-representation/
-[ ] https://leetcode.com/contest/weekly-contest-160/problems/maximum-length-of-a-concatenated-string-with-unique-characters/
+[x] https://leetcode.com/contest/weekly-contest-160/problems/circular-permutation-in-binary-representation/
+[x] https://leetcode.com/contest/weekly-contest-160/problems/maximum-length-of-a-concatenated-string-with-unique-characters/
 [ ] https://leetcode.com/contest/weekly-contest-161/problems/count-number-of-nice-subarrays/
 [ ] https://leetcode.com/contest/weekly-contest-161/problems/minimum-remove-to-make-valid-parentheses/
 [ ] https://leetcode.com/contest/weekly-contest-162/problems/reconstruct-a-2-row-binary-matrix/

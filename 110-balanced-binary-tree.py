@@ -49,9 +49,5 @@ class Solution:
             return 1 + max(lh, rh)
         return height(root) >= 0
 
-    def iterative(self, root: Optional[TreeNode]) -> bool:
-        if not root:
-            return True
-
 ans = Solution().isBalanced(root)
 print(ans)
