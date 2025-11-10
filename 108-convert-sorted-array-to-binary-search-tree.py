@@ -18,9 +18,10 @@ class Solution:
         m = len(nums) // 2
         root = TreeNode(nums[m])
         root.left = self.sortedArrayToBST(nums[:m])
-        root.right = self.sortedArrayToBST(nums[m+1:])
+        root.right = self.sortedArrayToBST(nums[m + 1 :])
         return root
 
-nums = [-10,-3,0,5,9]
+
+nums = [-10, -3, 0, 5, 9]
 solution = Solution().sortedArrayToBST(nums)
 tprint(solution, inorder=True)
