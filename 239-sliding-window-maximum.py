@@ -33,6 +33,7 @@ class Solution:
         res.append(nums[q[0]])
         n = len(nums)
         for i in range(k, n):
+            # pop the leftmost element
             if q[0] < i - k:
                 q.popleft()
 

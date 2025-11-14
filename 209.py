@@ -3,22 +3,27 @@ from typing import List
 
 class Solution:
     def minSubArrayLen(self, target: int, nums: List[int]) -> int:
-        left = 0
-        right = 0
-        ans = float("inf")
-        rsum = 0
-        while right < len(nums):
-            rsum += nums[right]
-            while rsum >= target:
-                ans = min(right - left + 1, ans)
-                if ans == 1:
-                    return 1
-                rsum = rsum - nums[left]
-                left += 1
-            right += 1
-        return 1 if ans == float("inf") + 1 else ans
+        csum = 0
+        i = 0
+        j = 0
+        n = len(nums)
+        ans = n + 1
+        for j in range(n):
+            x = nums[j]
+            csum += x
+            while csum >= target:
+                length = j - i + 1
+
+                if ans > length:
+                    ans = length
+
+                csum -= nums[i]
+                i += 1
+        if ans == n + 1:
+            return 0
+        return ans
 
 
-target = 7
-nums = [2, 7, 1, 2, 4, 3]
+target = 10
+nums = [1, 1, 1, 1, 1, 1, 1, 1]
 print(Solution().minSubArrayLen(target, nums))
