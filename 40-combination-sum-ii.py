@@ -19,7 +19,7 @@ class Solution:
                 return
             dfs(i + 1, total - candidates[i], subset + [candidates[i]])
             j = i + 1
-            while j < n and candidates[j] == candidates[j-1]:
+            while j < n and candidates[j] == candidates[j - 1]:
                 j = j + 1
             dfs(j, total, subset)
 
