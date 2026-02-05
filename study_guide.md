@@ -38,7 +38,7 @@
 #### 8:00 - 9:30 (3rd contest)
 - Contest Phase
 
-#### 10 - 12 am
+#### 10 - 12
 - Study Phase
 
 

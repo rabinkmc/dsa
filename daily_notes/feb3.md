@@ -114,7 +114,71 @@ list, and there will always be a prev and we can always assign to prev->next
 1->2->4
 
 insert 3 between 2 and 4, so we say insert at 2, rather than thinking in terms
-of values
+of values 
 
 
 i.e insert(list, 2)
+
+
+## problem 1 - Design Linked List
+
+Need a lot of practice with linked list, linked list has to be second nature
+
+## problem 2 - delete element from linked list
+
+## problem 3 - find a node for cycle if it exists
+the first visited node is the starting point
+
+## problem 4 - kth largest element stream
+have a max heap of k elements
+kth largest element will be heap[0]
+
+heapq.heappush(pq, num) for num in nums
+
+if len(pq) == k:
+    heapq.heappop(pq)
+
+## problem 5 - last stone weight 
+heap
+
+## problem 6 - k weakest rows in a matrix
+heap but flip to max heap by changing the sign
+
+## todo: problem 7 - kth smallest element in a sorted matrix
+
+I think this problem is better approached by binary search. Actually binary
+search is kind of tricky
+
+## problem 8 - minimum cost to connect k sticks
+done, just use heap
+
+## problem 9: insert into a binary search tree
+
+very similar to search, just assume you are searching the array and depending on
+the relation insert the node accordingly
+
+## todo: problem 10: delete node in a bst
+
+## problem 10: convert to base 7
+done
+
+## problem 11 - design hash set
+idea create a struct Entry to hold data
+
+```c
+typedef struct Entry {
+    int val;
+    struct Entry *next;
+} Entry;
+
+```
+This is how the Set struct will look like
+
+```c
+typedef struct Set {
+    Entry **buckets;
+    int size; // bucket size
+} Set;
+```
+
+## problem 12 - design hash map
