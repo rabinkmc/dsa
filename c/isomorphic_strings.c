@@ -1,4 +1,5 @@
-#include "hashmap.h"
+#include "include/hashmap.h"
+#include "include/array.h"
 
 #include <stdio.h>
 
@@ -22,20 +23,31 @@ bool isIsomorphic(char *s, char *t) {
         };
     }
     HashIter *s_iter = new_hashiter(s_counter);
-    Entry *e;
-    while ((e = hashiter_next(s_iter))) {
-        printf("key %d, value %d\n", e->key, e->value);
-    }
-    printf("t counter\n");
     HashIter *t_iter = new_hashiter(t_counter);
+    Entry *e;
+    Array *s_arr = array_new();
+    Array *t_arr = array_new();
+    while ((e = hashiter_next(s_iter))) {
+        array_append(s_arr, e->value);
+    }
     while ((e = hashiter_next(t_iter))) {
-        printf("key %d, value %d\n", e->key, e->value);
+        array_append(t_arr, e->value);
+    }
+    if (array_len(s_arr) != array_len(t_arr)) {
+        return false;
+    }
+    array_sort(s_arr);
+    array_sort(t_arr);
+    for (int i = 0; i < array_len(s_arr); i++) {
+        if (s_arr->data[i] != t_arr->data[i]) {
+            return false;
+        }
     }
     return false;
 }
 
 int main() {
-    bool status = isIsomorphic("egg", "add");
+    int status = isIsomorphic("egg", "add");
     printf("isomorphic: %d", status);
     return 0;
 }

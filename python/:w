@@ -1,0 +1,67 @@
+from typing import List
+
+class TrieNode:
+    def __init__(self):
+        self.children = {}
+        self.is_word = False
+        self.hotness = 0
+
+    def __str__(self):
+        return f"{self.children}->{self.is_word}"
+
+class Trie:
+    def __init__(self):
+        self.root = TrieNode()
+
+    def insert(self, word, hotness):
+        curr = self.root
+        for ch in word:
+            if ch not in self.curr.children:
+                self.curr[ch] = TrieNode()
+            curr = self.curr[ch]
+        self.is_word = True
+        self.hotness = hotness
+
+    def prefix(self, prefix):
+        curr = self.root
+        for ch in prefix:
+            if ch in curr.children:
+                curr = curr.children[ch]
+        return curr
+
+    def descendants(self, prefix):
+        root = self.prefix(prefix)
+        res = list(prefix)
+        answers = []
+        def dfs(node):
+            if node.is_word:
+                out = [node.hotness, "".join(res)]
+                answers.append(out)
+            for adj in node.children:
+                res.append(adj)
+                dfs(node.children[adj])
+                res.pop()
+        return answers
+
+
+
+class AutocompleteSystem:
+
+    def __init__(self, sentences: List[str], times: List[int]):
+        self.times = times
+        self.tree = self.TrieNode()
+        n = len(sentences)
+        for i in range(n):
+            sentence = sentences[i]
+            self.tree.insert(sentence, times[i])
+        
+
+    def input(self, c: str) -> List[str]:
+        suggestions = self.tree.descendants(c)
+        return suggestions
+        
+
+
+# Your AutocompleteSystem object will be instantiated and called as such:
+obj = AutocompleteSystem(sentences, times)
+param_1 = obj.input(c)

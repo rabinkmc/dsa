@@ -1,0 +1,19 @@
+BasedOnStyle: LLVM
+
+IndentWidth: 4
+ContinuationIndentWidth: 4
+TabWidth: 4
+UseTab: Never
+
+# This is the IMPORTANT one (kills ugly alignment)
+AlignAfterOpenBracket: DontAlign
+
+# One argument per line when broken
+BinPackArguments: false
+BinPackParameters: false
+
+# Trailing commas are okay (your style already shows them)
+AllowAllArgumentsOnNextLine: true
+AllowAllParametersOfDeclarationOnNextLine: true
+
+ColumnLimit: 80
