@@ -1,0 +1,19 @@
+from typing import List
+from functools import lru_cache
+
+
+class Solution:
+    def maxAlternatingSum(self, nums: List[int]) -> int:
+        n = len(nums)
+        dp = [[0, 0] for _ in range(n + 1)]
+        for i in range(n - 1, -1, -1):
+            dp[i][1] = max(dp[i + 1][1], nums[i] + dp[i + 1][0])
+            dp[i][0] = max(dp[i + 1][0], -nums[i] + dp[i + 1][1])
+        return dp[0][1]
+
+
+nums = [4, 2, 5, 3]
+nums = [5, 6, 7, 8]
+nums = [6, 2, 1, 2, 4, 5]
+ans = Solution().maxAlternatingSum(nums)
+print(ans)
