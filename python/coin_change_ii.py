@@ -8,10 +8,8 @@ class Solution:
             dp[coin] += 1
         for x in range(amount + 1):
             for coin in coins:
-                if coin > x:
-                    continue
-                dp[x] += dp[x - coin]
-        print(dp)
+                if coin <= x:
+                    dp[x] += dp[x - coin]
         return dp[amount]
 
 

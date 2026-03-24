@@ -4,35 +4,33 @@ from functools import lru_cache
 
 class Solution:
     def coinChange(self, coins: List[int], amount: int) -> int:
-        if amount == 0:
-            return 0
         coins.sort()
+        INF = float("inf")
 
         @lru_cache(None)
-        def dp(rem):
-            if rem < 0:
-                return -1
+        def dp(i, rem):
             if rem == 0:
                 return 0
+            if i == len(coins):
+                return INF
 
-            ans = float("inf")
-            for coin in coins:
-                if rem - coin < 0:
-                    break
-                nc = dp(rem - coin)
-                if nc == -1:
-                    continue
-                ans = min(ans, 1 + nc)
-            if ans == float("inf"):
-                return -1
-            return ans
+            skip = dp(i + 1, rem)
+            take = INF
+            if coins[i] <= rem:
+                take = 1 + dp(i, rem - coins[i])
+            return min(take, skip)
 
-        return dp(amount)
+        res = dp(0, amount)
+        if res == INF:
+            return -1
+        return res
 
 
 coins = [1, 2, 5]
 amount = 11
 # coins = [1]
 # amount = 1
+# coins = [2]
+# amount = 3
 ans = Solution().coinChange(coins, amount)
 print(ans)
