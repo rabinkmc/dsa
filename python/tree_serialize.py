@@ -4,16 +4,19 @@ class TreeNode(object):
         self.left = None
         self.right = None
 
+
 def pprint(node):
     if not node:
-        return 
+        return
     pprint(node.left)
     print(node.val, end="->")
     pprint(node.right)
 
+
 class Codec:
     def serialize(self, root):
         res = []
+
         def dfs(node):
             if not node:
                 res.append("N")
@@ -21,18 +24,19 @@ class Codec:
             res.append(str(node.val))
             dfs(node.left)
             dfs(node.right)
+
         dfs(root)
         return ",".join(res)
-        
 
     def deserialize(self, data):
         """Decodes your encoded data to tree.
-        
+
         :type data: str
         :rtype: TreeNode
         """
         print(data)
         vals = iter(data.split(","))
+
         def dfs():
             val = next(vals)
             if val == "N":
@@ -41,6 +45,7 @@ class Codec:
             node.left = dfs()
             node.right = dfs()
             return node
+
         return dfs()
 
 

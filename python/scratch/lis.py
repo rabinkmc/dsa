@@ -2,10 +2,16 @@ from typing import List
 
 
 class Solution:
-    def bestTeamScore(self, scores: List[int], ages: List[int]) -> int:
-        return 0
+    def lengthOfLIS(self, nums: List[int]) -> int:
+        dp = [1] * len(nums)
+        for i in range(len(nums)):
+            for j in range(i):
+                if nums[i] > nums[j]:
+                    dp[i] = max(dp[i], dp[j] + 1)
+        return max(dp)
 
 
-scores = [1, 3, 5, 10, 15]
-ages = [1, 2, 3, 4, 5]
-ans = Solution().bestTeamScore(scores, ages)
+nums = [10, 9, 2, 5, 3, 7, 101, 18]
+nums = [1, 3, 6, 7, 9, 4, 10, 5, 6]
+ans = Solution().lengthOfLIS(nums)
+print(ans)
