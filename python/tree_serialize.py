@@ -1,3 +1,6 @@
+## the idea is simple create a simple string to
+## represent the array null values are represented
+## as N
 class TreeNode(object):
     def __init__(self, x):
         self.val = x
@@ -16,16 +19,15 @@ def pprint(node):
 class Codec:
     def serialize(self, root):
         res = []
-
-        def dfs(node):
+        stack = [root]
+        while stack:
+            node = stack.pop()
             if not node:
                 res.append("N")
-                return
+                continue
             res.append(str(node.val))
-            dfs(node.left)
-            dfs(node.right)
-
-        dfs(root)
+            stack.append(node.right)
+            stack.append(node.left)
         return ",".join(res)
 
     def deserialize(self, data):
@@ -60,5 +62,8 @@ one.left = two
 one.right = three
 three.left = four
 three.right = five
-pprint(ser.deserialize(ser.serialize(one)))
+
+print(ser.serialize(one))
+
+# pprint(ser.deserialize(ser.serialize(one)))
 # ans = deser.deserialize(ser.serialize(root))
