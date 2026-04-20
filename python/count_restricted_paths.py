@@ -1,6 +1,6 @@
 from typing import List
-from collections import defaultdict
 from heapq import heappush, heappop
+from functools import lru_cache
 
 
 class Solution:
@@ -21,12 +21,18 @@ class Solution:
                 if cdist < dists[adj]:
                     dists[adj] = cdist
                     heappush(pq, (cdist, adj))
-        ans = 0
-        print(dists)
-        for i in range(n - 1):
-            if dists[i] > dists[i + 1]:
-                ans += 1
-        return ans
+
+        @lru_cache(None)
+        def dfs(node):
+            if node == n - 1:
+                return 1
+            ans = 0
+            for adj, _ in graph[node]:
+                if dists[node] > dists[adj]:
+                    ans += dfs(adj)
+            return ans
+
+        return dfs(0)
 
 
 n = 5
